@@ -428,6 +428,10 @@ class GatewayMethod extends WC_Payment_Gateway
         return null;
     }
 
+    /**
+    *@Luis Castro
+    *@esta funsion valida cualquier tipo de impuesto
+    **/
     public function taxP2P($taxes,$base){
       $taxForP2P = [];
       if (isset($taxes)) {
