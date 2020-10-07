@@ -14,7 +14,6 @@ Run `composer install --no-dev`
 
 ## Idiomas soportados
 - Español Colombia (es_CO)
-- Español Ecuador (es_EC)
 - Español (es)
 - Inglés (en)
 

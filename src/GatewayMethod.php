@@ -379,7 +379,6 @@ class GatewayMethod extends WC_Payment_Gateway
                     'keyword' => 'monitorTaxes',
                     'value' => $this->taxP2P($order->get_taxes(),$order->get_subtotal())
                 ],
-
             ],
         ];
 
@@ -428,6 +427,7 @@ class GatewayMethod extends WC_Payment_Gateway
         return null;
     }
 
+
     /**
     *@Luis Castro
     *@esta funsion valida cualquier tipo de impuesto
@@ -447,16 +447,13 @@ class GatewayMethod extends WC_Payment_Gateway
       return $taxForP2P;
     }
 
+
     /**
      * @param \WC_Order_Item_Tax[] $taxes
      * @return array
      */
-     // Luis Castro
-     // Agregue la base para las transaciones la funsion  getOrderTaxes
     public function getOrderTaxes($taxes,$base)
     {
-      $jsTaxType = json_encode($taxes);
-      $this->logger($jsTaxType, "Valor del Taxes Luis");
         $valueAddedTaxType = array_map('intval', $this->taxes['taxes_others']);
         $iceType = array_map('intval', $this->taxes['taxes_ice']);
         $taxForP2P = [];
@@ -617,9 +614,9 @@ class GatewayMethod extends WC_Payment_Gateway
 
         if (!is_null($transactionInfo->payment())) {
             foreach ($transactionInfo->payment() as $transaction) {
-                if ($transaction->status()->status() == $sessionStatusInstance::ST_APPROVED) {
+                //if ($transaction->status()->status() == $sessionStatusInstance::ST_APPROVED) {
                     $transactions[] = $transaction;
-                }
+                //}
             }
         }
 
